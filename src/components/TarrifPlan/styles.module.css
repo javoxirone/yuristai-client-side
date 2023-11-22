@@ -1,0 +1,294 @@
+/* .tariffPlanCard {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    height: 575px;
+    width: 400px;
+    background-color: #1a1a1a;
+    border-radius: 20px;
+    box-shadow: rgb(0, 0, 0) 0px 5px 15px;
+}
+
+.tariffName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    background-color: #5d51f2;
+    font-size: 18px; 
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    font-size: 35px;
+}
+
+.tariffPlanDescription {
+    display: flex;
+    justify-content: center;
+} */
+
+/* .list {
+    display: flex;
+    flex-direction: column;
+    font-size: 21px;
+    row-gap: 25px;
+    list-style: none;
+    padding-left: 0;
+    width: 325px;
+
+}
+
+.list > li {
+    display: flex;
+    align-items: center;
+    column-gap: 12.5px;
+} */
+
+/* .xicon {
+    font-size: 25px;
+    color: red;
+}
+
+.checkicon {
+    font-size: 25px;
+    color: green;
+} */
+
+/* .chooseButtonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.chooseButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 200px;
+    border: 3px solid #5d51f2;
+    background-color: #1a1a1a;
+    font-size: 22px;
+    border-radius: 5px;
+    color: white
+} */
+
+@media (0 <= width <= 768px)
+{
+    .tariffPlanCard {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        height: 450px;
+        width: 300px;
+        background-color: #1a1a1a;
+        border-radius: 20px;
+        box-shadow: rgb(0, 0, 0) 0px 5px 15px;
+    }
+
+    .tariffName {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 65px;
+        background-color: #5d51f2;
+        font-size: 15px; 
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+    }
+
+    .price {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+        font-size: 27.5px;
+    }
+
+    .list {
+        display: flex;
+        flex-direction: column;
+        font-size: 18px;
+        row-gap: 22.5px;
+        width: 250px;
+        margin-top: 0;
+    }
+    
+    .xicon {
+        font-size: 20px;
+        color: red;
+    }
+    
+    .checkicon {
+        font-size: 20px;
+        color: green;
+    }
+    
+    .chooseButtonContainer {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .chooseButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 45px;
+        width: 175px;
+        border: none;
+        background-color: #5d51f2;
+        font-size: 20px;
+        border-radius: 10px;
+        color: white
+    }
+}
+
+@media (768px <= width <= 1280px)
+{
+    .tariffPlanCard {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        height: 465px;
+        width: 300px;
+        background-color: #1a1a1a;
+        border-radius: 20px;
+        box-shadow: rgb(0, 0, 0) 0px 5px 15px;
+    }
+
+    .tariffName {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 65px;
+        background-color: #5d51f2;
+        font-size: 18px; 
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+    }
+
+    .price {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        font-size: 27.5px;
+    }
+
+    .list {
+        display: flex;
+        flex-direction: column;
+        font-size: 18px;
+        row-gap: 25px;
+        width: 250px;
+        margin-top: 0;
+    }
+    
+    .xicon {
+        font-size: 20px;
+        color: red;
+    }
+    
+    .checkicon {
+        font-size: 20px;
+        color: green;
+    }
+    
+    .chooseButtonContainer {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .chooseButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        width: 200px;
+        border: 3px solid #5d51f2;
+        background-color: #1a1a1a;
+        font-size: 22px;
+        border-radius: 5px;
+        color: white
+    }
+}
+
+@media (width >= 1280px)
+{
+    .tariffPlanCard {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        height: 450px;
+        width: 300px;
+        background-color: #1a1a1a;
+        border-radius: 20px;
+        box-shadow: rgb(0, 0, 0) 0px 5px 15px;
+    }
+
+    .tariffName {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 65px;
+        background-color: #5d51f2;
+        font-size: 15px; 
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+    }
+
+    .price {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+        font-size: 27.5px;
+    }
+
+    .list {
+        display: flex;
+        flex-direction: column;
+        font-size: 18px;
+        row-gap: 22.5px;
+        width: 250px;
+        margin-top: 0;
+    }
+    
+    .xicon {
+        font-size: 20px;
+        color: red;
+    }
+    
+    .checkicon {
+        font-size: 20px;
+        color: green;
+    }
+
+    .chooseButton {
+        display: flex;
+        align-items: end;
+    }
+    
+    .chooseButtonContainer {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .chooseButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 45px;
+        width: 175px;
+        background-color: #5d51f2;
+        border: none;
+        font-size: 20px;
+        border-radius: 10px;
+        color: white;
+    }
+}
