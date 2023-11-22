@@ -1,8 +1,7 @@
 import styles from "./styles.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faXmark } from "@fortawesome/free-solid-svg-icons";
 
-export default function Tariff({ planName, price, promptsPerMonth, promptsPerDay, voiceRecognition, exportFeature }) 
+// eslint-disable-next-line react/prop-types
+export default function TariffPlanCard({ planName, price, promptsPerMonth, promptsPerDay, voiceRecognition, exportFeature })
 {
   return (
     <div className={styles.tariffPlanCard}>
