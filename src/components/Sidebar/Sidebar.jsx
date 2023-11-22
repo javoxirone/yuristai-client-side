@@ -1,8 +1,7 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import { IoIosSettings } from "react-icons/io";
-import { CgProfile } from "react-icons/cg";
+import { IoLogOut } from "react-icons/io5";
 
 const Sidebar = () => {
     return (
@@ -23,6 +22,12 @@ const Sidebar = () => {
                         <NavLink to="/settings" className="nav-link d-flex justify-content-start align-items-center gap-1" aria-current="page">
                             <IoIosSettings />
                             Settings
+                        </NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink to="/registration" className="nav-link d-flex justify-content-start align-items-center gap-1" aria-current="page">
+                            <IoLogOut />
+                            Logout
                         </NavLink>
                     </li>
                     {/* Add similar NavLink components for other menu items */}
