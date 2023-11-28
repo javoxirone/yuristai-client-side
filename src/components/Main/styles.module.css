@@ -1,0 +1,21 @@
+.messageList {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 85%;
+    padding: 30px;
+}
+
+.messageList::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.inputForm {
+    display: flex;
+    justify-content: center;
+    height: 15%;
+}

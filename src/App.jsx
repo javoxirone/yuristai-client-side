@@ -5,7 +5,8 @@ import Settings from "./pages/Settings/Settings.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Registration from "./pages/Registration/Registration.jsx";
 
-export default function App() {
+export default function App() 
+{
     return (
         <div className="d-flex">
             <div className="col-2">
