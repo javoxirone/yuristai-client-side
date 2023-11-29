@@ -26,6 +26,9 @@
 .sidebar {
     height: 100vh;
 }
+.chat{
+    height: 100vh;
+}
 
 @media (0 <= width <= 768px) {
     .sidebar {
