@@ -1,0 +1,42 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* .sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 3em;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transform: translateX(100%);
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.sidebar .active {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transform: translateX(0);
+} */
+
+@media (0 <= width <= 768px) {
+  .sidebar {
+    /* transform: translateX(-100);
+      opacity: 0;
+      visibility: hidden; */
+    display: none;
+  }
+  .chat {
+    grid-column: 1 / -1;
+    height: 100%;
+  }
+  .navItem svg {
+    width: 20px;
+    height: 20px;
+  }
+}

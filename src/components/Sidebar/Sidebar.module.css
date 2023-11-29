@@ -1,0 +1,35 @@
+.user {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 0.25em;
+}
+
+.userDescription {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  font-weight: 500;
+}
+
+.userDescription small {
+  color: #d1cfcf;
+}
+
+:global(.app) {
+  display: grid;
+  grid-template-columns: auto 4fr;
+}
+
+/* "d-flex align-items-center link-body-emphasis text-decoration-none gap-2" */
+
+@media (max-width: 1200px) {
+  .userDescription {
+    font-size: 13.5px;
+  }
+
+  .user {
+    gap: 0.2em;
+  }
+}
