@@ -1,0 +1,15 @@
+.inputGroup {
+  display: flex;
+  height: 40px;
+  margin-top: 1rem;
+}
+
+@media (0 <= width <= 768px) {
+  :global(.main) {
+    padding: 0;
+  }
+
+  .inputGroup {
+    margin-top: 1rem;
+  }
+}
