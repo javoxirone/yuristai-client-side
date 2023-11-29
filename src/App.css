@@ -1,5 +1,5 @@
 ::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 /* .sidebar {
@@ -23,20 +23,25 @@
   visibility: visible;
   transform: translateX(0);
 } */
+.sidebar {
+    height: 100vh;
+}
 
 @media (0 <= width <= 768px) {
-  .sidebar {
-    /* transform: translateX(-100);
-      opacity: 0;
-      visibility: hidden; */
-    display: none;
-  }
-  .chat {
-    grid-column: 1 / -1;
-    height: 100%;
-  }
-  .navItem svg {
-    width: 20px;
-    height: 20px;
-  }
+    .sidebar {
+        /* transform: translateX(-100);
+          opacity: 0;
+          visibility: hidden; */
+        display: none;
+    }
+
+    .chat {
+        grid-column: 1 / -1;
+        height: 100%;
+    }
+
+    .navItem svg {
+        width: 20px;
+        height: 20px;
+    }
 }
