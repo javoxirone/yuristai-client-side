@@ -2,6 +2,10 @@
     display: none;
 }
 
+.app {
+  height: 100%;
+}
+
 /* .sidebar {
   position: absolute;
   top: 0;
@@ -24,24 +28,22 @@
   transform: translateX(0);
 } */
 .sidebar {
-    height: 100vh;
+  height: 100vh;
 }
 
-@media (0 <= width <= 768px) {
-    .sidebar {
-        /* transform: translateX(-100);
-          opacity: 0;
-          visibility: hidden; */
-        display: none;
-    }
+@media (0 <= width <= 768px) 
+{
+  .sidebar {
+    display: none;
+  }
 
-    .chat {
-        grid-column: 1 / -1;
-        height: 100%;
-    }
+  .chat {
+    grid-column: 1 / -1;
+    height: 100%;
+  }
 
-    .navItem svg {
-        width: 20px;
-        height: 20px;
-    }
+  .navItem svg {
+    width: 20px;
+    height: 20px;
+  }
 }

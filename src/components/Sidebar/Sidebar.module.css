@@ -17,10 +17,10 @@
   color: #d1cfcf;
 }
 
-:global(.app) {
+/* :global(.app) {
   display: grid;
   grid-template-columns: auto 4fr;
-}
+} */
 
 /* "d-flex align-items-center link-body-emphasis text-decoration-none gap-2" */
 

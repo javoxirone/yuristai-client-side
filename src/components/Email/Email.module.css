@@ -1,0 +1,70 @@
+.emailForm input {
+    border: none;
+    outline: none;
+    background-color: #1a1a1a;
+    width: 100%;
+}
+
+@media (0 <= width <= 768px)
+{
+    .emailForm {
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+        column-gap: 15px;
+        padding: 15px;
+        width: 300px;
+        height: 55px;
+    }
+
+    .envelopeIcon {
+        font-size: 16px;
+    }
+
+    .emailForm input {
+        font-size: 17px;
+    }
+}
+
+@media (768px < width <= 1366px)
+{
+    .emailForm {
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+        padding: 15px;
+        column-gap: 15px;
+        width: 515px;
+        height: 60px;
+    }
+
+    .envelopeIcon {
+        font-size: 18px;
+    }
+
+    .emailForm input {
+        font-size: 18px;
+    }
+}
+
+@media (width > 1366px)
+{
+    .emailForm {
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+        box-sizing: border-box;
+        padding: 15px;
+        column-gap: 15px;
+        width: 565px;
+        height: 60px;
+    }
+
+    .envelopeIcon {
+        font-size: 20px;
+    }
+
+    .emailForm input {
+        font-size: 20px;
+    }
+}
