@@ -10,7 +10,7 @@ export default function App()
 {
   return (
     <div className="app">
-      {/* <div className="sidebar">
+      <div className="sidebar">
         <Sidebar />
       </div>
       <div className="chat" style={{ backgroundColor: "#23262d" }}>
@@ -20,8 +20,7 @@ export default function App()
           <Route path="/profile" element={<Profile />} />
           <Route path="/registration" element={<Registration />} />
         </Routes>
-      </div> */}
-      <Registration />
+      </div>
     </div>
   )
 }
