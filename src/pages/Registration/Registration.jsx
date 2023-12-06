@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import styles from "./Registration.module.css"
 import { useState } from "react"
-import Navigation from "../../components/Navigation"
+import Navigation from "../../components/Navigation/Navigation"
 
 export default function Registration() {
   const [password, setPassword] = useState("")

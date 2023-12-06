@@ -5,8 +5,8 @@ import { FaHome } from "react-icons/fa"
 import { IoIosSettings } from "react-icons/io"
 import { IoLogOut } from "react-icons/io5"
 import { IoIosClose } from "react-icons/io"
-import styles from "../components/Main/Main.module.css"
-import "../App.css"
+import styles from "../Navigation/Navigation.module.css"
+import "../../App.css"
 
 function Navigation() {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false)
