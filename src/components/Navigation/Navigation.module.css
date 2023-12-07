@@ -1,0 +1,59 @@
+.nav {
+  display: none;
+  background: transparent;
+  padding: 1rem 0.5rem 0.5rem;
+}
+
+.menuBtn {
+  background: none;
+  color: rgb(184, 184, 184);
+  outline: none;
+  border: none;
+}
+
+.menuBtn svg {
+  width: 36px;
+  height: 36px;
+}
+
+.closeMenuBtn {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  background: none;
+  color: rgb(184, 184, 184);
+  outline: none;
+  border: none;
+}
+
+.closeMenuBtn svg {
+  width: 36px;
+  height: 36px;
+}
+
+.sidebarActive {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 3em;
+  opacity: 1;
+  /* pointer-events: none;
+    visibility: hidden; */
+  /* transform: translateX(100%);
+    transition: all 0.3s; */
+}
+
+@media (0 <= width <= 768px) {
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navItem svg {
+    width: 20px;
+    height: 20px;
+  }
+}

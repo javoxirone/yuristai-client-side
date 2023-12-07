@@ -1,11 +1,11 @@
-import PageTitle from "../../components/PageTitle/PageTitle.jsx";
+import Navigation from "../../components/Navigation/Navigation"
 
 const Settings = () => {
   return (
-    <>
-        <PageTitle title="Sozlamalar"/>
-    </>
+    <div className="vh-100">
+      <Navigation />
+    </div>
   )
-};
+}
 
 export default Settings
