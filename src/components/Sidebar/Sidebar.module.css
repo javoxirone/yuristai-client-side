@@ -17,13 +17,6 @@
   color: #d1cfcf;
 }
 
-:global(.app) {
-  display: grid;
-  grid-template-columns: auto 4fr;
-}
-
-/* "d-flex align-items-center link-body-emphasis text-decoration-none gap-2" */
-
 @media (max-width: 1200px) {
   .userDescription {
     font-size: 13.5px;

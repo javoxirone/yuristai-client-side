@@ -1,0 +1,15 @@
+.messageList {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 100vh;
+    padding: 10px 30px 0 30px;
+  }
+  
+  .messageList::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scroll::-webkit-scrollbar {
+    display: none;
+  }
