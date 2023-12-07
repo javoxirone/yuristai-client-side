@@ -1,3 +1,8 @@
+.app {
+  display: grid;
+  grid-template-columns: 20% auto;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -9,9 +14,11 @@
 .sidebar {
   height: 100vh;
 }
+.chat {
+  height: 100vh;
+}
 
-@media (0 <= width <= 768px) 
-{
+@media (0 <= width <= 768px) {
   .sidebar {
     display: none;
   }
@@ -19,10 +26,5 @@
   .chat {
     grid-column: 1 / -1;
     height: 100%;
-  }
-
-  .navItem svg {
-    width: 20px;
-    height: 20px;
   }
 }

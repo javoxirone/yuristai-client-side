@@ -1,4 +1,4 @@
-import Navigation from "../../components/Navigation.jsx"
+import Navigation from "../../components/Navigation/Navigation"
 
 const Settings = () => {
   return (

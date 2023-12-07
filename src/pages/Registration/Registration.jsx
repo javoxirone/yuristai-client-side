@@ -1,7 +1,6 @@
 import styles from "./Registration.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-// import Navigation from "../../components/Navigation";
 import Email from "../../components/Email/Email";
 import Password from "../../components/Password/Password";
 import { useState } from "react";

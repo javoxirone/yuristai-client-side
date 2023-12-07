@@ -1,5 +1,5 @@
 import { IoSend } from "react-icons/io5"
-import "./style.css"
+import "../../index.css"
 import { useState } from "react"
 import styles from "./InputForm.module.css"
 
