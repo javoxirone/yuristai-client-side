@@ -1,190 +1,149 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {
-  faLock,
-  faEye,
-  faEyeSlash,
-  faEnvelope,
-} from "@fortawesome/free-solid-svg-icons"
-import styles from "./Registration.module.css"
-import { useState } from "react"
-import Navigation from "../../components/Navigation/Navigation"
+import Email from "../../components/Email/Email";
+import Password from "../../components/Password/Password";
+import Username from "../../components/Username/username";
+import AuthContext from "../../context/AuthContext";
+import styles from "./Registration.module.css";
+import { emailRegex, passwordRegex, usernameRegex } from "./regex";
+import { useContext, useState } from "react";
 
-export default function Registration() {
-  const [password, setPassword] = useState("")
-  const [firstName, setFirstName] = useState("")
-  const [lastName, setLastName] = useState("")
-  const [email, setEmail] = useState("")
+export default function Registration() 
+{
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [existingUsername, setExistingUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [existingPassword, setExistingPassword] = useState("");
 
-  const [isIconClicked, setIsIconClicked] = useState(false)
-  const [newUser, setNewUser] = useState(true)
+  const [isUsernameValid, setIsUsernameValid] = useState(false);
+  const [isEmailValid, setIsEmailValid] = useState(false);
+  const [isPasswordValid, setIsPasswordValid] = useState(false);
 
-  function savePassword(e) {
-    setPassword(e.target.value)
-  }
+  const [viewPassword, setViewPassword] = useState(false);
+  const [viewExistingPassword, setViewExistingPassword] = useState(false);
+  const [newUser, setNewUser] = useState(true);
+
+  const [emailBorder, setEmailBorder] = useState("2px solid #6a6a6a");
+  const [usernameBorder, setUsernameBorder] = useState("2px solid #6a6a6a");
+  const [passwordBorder, setPasswordBorder] = useState("2px solid #6a6a6a");
 
   const signUpButton = {
-    // border: "none",
     backgroundColor: newUser ? "rgb(93, 81, 242)" : "rgba(93, 81, 242, 0.6)",
     transition: "background-color 0.5s",
-    borderRadius: 5,
-    // width: 300,
-    // height: 60,
-    // fontSize: 22,
-    // color: "white",
-    // position: "relative",
-    // top: 0
+    borderRadius: 5
   }
 
   const signInButton = {
-    // border: "none",
     backgroundColor: newUser ? "rgba(93, 81, 242, 0.6)" : "rgb(93, 81, 242)",
     transition: "background-color 0.5s",
-    borderRadius: 5,
-    // width: 300,
-    // height: 60,
-    // fontSize: 22,
-    // color: "white"
+    borderRadius: 5
   }
 
-  // const registration = {
-  //   display: "flex",
-  //   flexDirection: "column",
-  //   alignItems: "center",
-  //   boxSizing: "border-box",
-  //   padding: 40,
-  //   width: 700,
-  //   height: newUser ? 600 : 550,
-  //   backgroundColor: "#1a1a1a",
-  //   rowGap: 50,
-  //   borderRadius: 10,
-  // }
+  function handleUsername(e)
+  {
+    setUsername(e.target.value);
+    setIsUsernameValid(usernameRegex.test(e.target.value));
+    setUsernameBorder(usernameRegex.test(e.target.value) ? "3px solid #4bb543" : "3px solid #ff0000");
+  }
+
+  function handleEmail(e)
+  {
+    setEmail(e.target.value);
+    setIsEmailValid(emailRegex.test(e.target.value));
+    setEmailBorder(emailRegex.test(e.target.value) ? "3px solid #4bb543" : "3px solid #ff0000");
+  }
+
+  function handlePassword(e)
+  {
+    setPassword(e.target.value);
+    setIsPasswordValid(passwordRegex.test(e.target.value));
+    setPasswordBorder(passwordRegex.test(e.target.value) ? "3px solid #4bb543" : "3px solid #ff0000");
+  }
+
+  const { handleSignUp } = useContext(AuthContext);
+  const { handleSignIn } = useContext(AuthContext);
 
   return (
-    <div className="d-flex flex-column h-100">
-      <Navigation />
-      <div className={styles.container}>
-        <div className={styles.registration}>
-          {/* removed "style={registration}" */}
-          <div className={styles.buttons}>
-            <button
-              className={styles.signUpButton}
-              style={signUpButton}
-              onClick={() => setNewUser(true)}
-            >
-              Ro'yxatdan O'tish
-            </button>
-            <button
-              className={styles.signInButton}
-              style={signInButton}
-              onClick={() => setNewUser(false)}
-            >
-              Tizimga Kirish
-            </button>
-          </div>
-          {newUser ? (
-            <div className={styles.main}>
-              <div className={styles.heading}>
-                <b>Bepul ro'yxatdan o'ting</b>
-              </div>
-              <form className={styles.form}>
-                <div className={styles.nameForm}>
-                  <input
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    type="text"
-                    className={styles.firstNameInput}
-                    placeholder="Ismingizni kiriting"
-                    required
-                  />
-                  <input
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    type="text"
-                    className={styles.lastNameInput}
-                    placeholder="Familiyangizni kiriting"
-                    required
-                  />
-                </div>
-                <div className={styles.emailForm}>
-                  <FontAwesomeIcon
-                    icon={faEnvelope}
-                    className={styles.envelopeIcon}
-                  />
-                  <input
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    type="text"
-                    className={styles.emailInput}
-                    placeholder="Elektron pochtangizni kiriting"
-                    required
-                  />
-                </div>
-                <div className={styles.passwordForm}>
-                  <FontAwesomeIcon icon={faLock} className={styles.lockIcon} />
-                  <input
-                    className={styles.passwordInput}
-                    type={isIconClicked ? "text" : "password"}
-                    placeholder="Parol yarating"
-                    onChange={(e) => savePassword(e)}
-                    required
-                  />
-                  {password.length > 0 && (
-                    <FontAwesomeIcon
-                      style={{ color: "white" }}
-                      icon={isIconClicked ? faEye : faEyeSlash}
-                      onClick={() => setIsIconClicked(!isIconClicked)}
-                    />
-                  )}
-                </div>
-                <button className={styles.submitButton}>
-                  Akkaunt Yaratish
-                </button>
-              </form>
+    <div className={styles.container}>
+      <div className={styles.registration}>
+        <div className={styles.buttons}>
+          <button 
+            className={styles.signUpButton} 
+            style={signUpButton} 
+            onClick={() => setNewUser(true)}
+          >
+            Ro'yxatdan O'tish
+          </button>
+          <button 
+            className={styles.signInButton} 
+            style={signInButton} 
+            onClick={() => setNewUser(false)}
+          >
+            Tizimga Kirish
+          </button>
+        </div>
+        {newUser ? (
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", rowGap: 20 }}>
+            <h1 className={styles.signUpHeading}>
+              <b>Bepul ro'yxatdan o'ting</b>
+            </h1>
+            <form className={styles.signUpForm} onSubmit={handleSignUp}>
+              <Username
+                handleUsername={handleUsername}
+                value={username}
+                border={usernameBorder}
+                name={"username"}
+              />
+              <Email 
+                handleEmail={handleEmail} 
+                value={email} 
+                border={emailBorder} 
+                name={"email"}
+              />
+              <Password 
+                handlePassword={handlePassword}
+                value={password}
+                border={passwordBorder}
+                viewPassword={viewPassword}
+                setViewPassword={setViewPassword}
+                name={"password"}
+              />
+              {
+                isUsernameValid && isEmailValid && isPasswordValid &&
+                <button className={styles.submitButton}>Akkaunt Yaratish</button> 
+              }
+            </form>
             </div>
           ) : (
-            <div className={styles.main2}>
-              <div className={styles.heading2}>
+            <div style={{display: "flex", flexDirection: "column", alignItems: "center", rowGap: 30 }}>
+              <h1 className={styles.signInHeading}>
                 <b>Qaytganingizdan Mavnunman!</b>
-              </div>
-              <form className={styles.form2}>
-                <div className={styles.emailForm}>
-                  <FontAwesomeIcon
-                    icon={faEnvelope}
-                    style={{ color: "white" }}
+              </h1>
+              <form className={styles.signInForm} onSubmit={handleSignIn}>
+                <Username
+                  handleUsername={(e) => setExistingUsername(e.target.value)}
+                  value={existingUsername}
+                  name={"existingUsername"}
+                />
+                <div className={styles.signInPasswordContainer}>
+                  <Password 
+                    handlePassword={(e) => setExistingPassword(e.target.value)} 
+                    value={existingPassword}
+                    viewPassword={viewExistingPassword}
+                    setViewPassword={setViewExistingPassword}
+                    name={"existingPassword"}
                   />
-                  <input
-                    type="email"
-                    className={styles.emailInput}
-                    placeholder="Elektron pochtangizni kiriting"
-                  />
-                </div>
-                <div className={styles.passwordInputContainer}>
-                  <div className={styles.passwordForm}>
-                    <FontAwesomeIcon icon={faLock} style={{ color: "white" }} />
-                    <input
-                      className={styles.passwordInput}
-                      type={isIconClicked ? "text" : "password"}
-                      placeholder="Parol yarating"
-                      onChange={(e) => savePassword(e)}
-                    />
-                    {password.length > 0 && (
-                      <FontAwesomeIcon
-                        style={{ color: "white" }}
-                        icon={isIconClicked ? faEye : faEyeSlash}
-                        onClick={() => setIsIconClicked(!isIconClicked)}
-                      />
-                    )}
-                  </div>
                   <div className={styles.link}>
                     <a href="###">Parolni unutdingizmi?</a>
                   </div>
                 </div>
-                <button className={styles.logInButton}>Tizimga Kirish</button>
+                {
+                  existingUsername.length >= 4 && existingPassword.length >= 8 &&
+                  <button className={styles.logInButton}>Tizimga Kirish</button>
+                }
               </form>
             </div>
           )}
         </div>
       </div>
-    </div>
   )
 }
