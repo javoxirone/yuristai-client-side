@@ -2,7 +2,7 @@ import styles from "./Password.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock, faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
-export default function Password({ handlePassword, value, border, viewPassword, setViewPassword }) 
+export default function Password({ handlePassword, value, border, viewPassword, setViewPassword, name }) 
 {
     return (
         <div style={{ border : border }} className={styles.passwordForm}>
@@ -12,6 +12,7 @@ export default function Password({ handlePassword, value, border, viewPassword, 
               type={viewPassword ? "text" : "password"}
               placeholder="Parol yarating"
               onChange={handlePassword}
+              name={name}
             />
             {value.length > 0 && (
                 <FontAwesomeIcon

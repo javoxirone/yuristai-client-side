@@ -58,28 +58,6 @@
     row-gap: 30px;
   }
 
-  .usernameForm {
-    display: flex;
-    align-items: center;
-    width: 300px;
-    height: 55px;
-    border-radius: 5px;
-    padding: 15px;
-    column-gap: 10px;
-  }
-
-  .usernameForm input {
-    border: none;
-    outline: none;
-    background-color: #1a1a1a;
-    font-size: 17px;
-    width: 100%;
-  }
-
-  .userIcon {
-    font-size: 16px;
-  }
-
   .submitButton {
     background-color: #5d51f2;
     border: none;
@@ -166,28 +144,6 @@
     flex-direction: column;
     align-items: center;
     row-gap: 30px;
-  }
-
-  .usernameForm {
-    display: flex;
-    align-items: center;
-    width: 515px;
-    height: 60px;
-    border-radius: 5px;
-    padding: 15px;
-    column-gap: 10px;
-  }
-
-  .usernameForm input {
-    border: none;
-    outline: none;
-    background-color: #1a1a1a;
-    font-size: 18px;
-    width: 100%;
-  }
-
-  .userIcon {
-    font-size: 18px;
   }
 
   .submitButton {
@@ -282,28 +238,6 @@
     flex-direction: column;
     align-items: center;
     row-gap: 30px;
-  }
-
-  .usernameForm {
-    display: flex;
-    align-items: center;
-    width: 565px;
-    height: 60px;
-    border-radius: 5px;
-    padding: 15px;
-    column-gap: 15px;
-  }
-
-  .usernameForm input {
-    border: none;
-    outline: none;
-    background-color: #1a1a1a;
-    font-size: 20px;
-    width: 100%;
-  }
-
-  .userIcon {
-    font-size: 20px;
   }
 
   .submitButton {

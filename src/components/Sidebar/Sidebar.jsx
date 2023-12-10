@@ -1,10 +1,15 @@
 import { NavLink } from "react-router-dom"
+import { useContext } from "react"
 import { FaHome } from "react-icons/fa"
 import { IoIosSettings } from "react-icons/io"
 import { IoLogOut } from "react-icons/io5"
 import styles from "./Sidebar.module.css"
+import AuthContext from "../../context/AuthContext"
 
-const Sidebar = () => {
+export default function Sidebar()
+{
+  let value = useContext(AuthContext);
+  let { handleLogOut } = useContext(AuthContext)
   return (
     <div
       className="d-flex flex-column flex-shrink-0 p-3"
@@ -45,15 +50,22 @@ const Sidebar = () => {
             Sozlamalar
           </NavLink>
         </li>
-        <li className="nav-item">
-          <NavLink
+        <li 
+        className="nav-item"
+        >
+          <div 
+          className="nav-link d-flex justify-content-start align-items-center gap-1 text-white"
+          onClick={handleLogOut}
+          >
+          {/* <NavLink
             to="/registration"
             className="nav-link d-flex justify-content-start align-items-center gap-1 text-white"
             aria-current="page"
-          >
+          > */}
             <IoLogOut />
             Chiqish
-          </NavLink>
+          {/* </NavLink> */}
+          </div>
         </li>
         {/* Add similar NavLink components for other menu items */}
       </ul>
@@ -69,8 +81,8 @@ const Sidebar = () => {
             className="rounded-circle me-2"
           />
           <div className={styles.userDescription}>
-            <strong>Javohir Nurmatjonov</strong>
-            <small>javoxirone</small>
+            <strong>{value.user.username}</strong>
+            <small>{value.user.username}</small>
           </div>
         </NavLink>
       </div>
@@ -78,4 +90,3 @@ const Sidebar = () => {
   )
 }
 
-export default Sidebar

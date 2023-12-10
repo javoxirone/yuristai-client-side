@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Email.module.css";
 
-export default function Email({ handleEmail, value, border }) 
+export default function Email({ handleEmail, value, border, name }) 
 {
     return (
         <div style={{ border: border }} className={styles.emailForm}>
@@ -12,6 +12,7 @@ export default function Email({ handleEmail, value, border })
               type="text"
               placeholder="Email-ni kiriting"
               onChange={handleEmail}
+              name={name}
             />
         </div>
     )

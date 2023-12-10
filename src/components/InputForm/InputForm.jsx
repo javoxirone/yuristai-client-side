@@ -38,7 +38,7 @@ export default function InputForm({ messages, setMessages })
       body: JSON.stringify({
         model: "gpt-3.5-turbo",
         messages: [systemMessage, prompt],
-      }),
+      })
     })
       .then((response) => response.json())
       .then((data) => {
@@ -67,7 +67,7 @@ export default function InputForm({ messages, setMessages })
         style={{
           color: "white",
           border: "1px solid white",
-          marginRight: "-9px",
+          fontSize: 18
         }}
       />
       <button type="submit" className="btn btn-primary">

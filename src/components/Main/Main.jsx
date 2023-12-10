@@ -6,14 +6,16 @@ import Navigation from "../Navigation.jsx"
 
 export default function Main() 
 {
-  const [messages, setMessages] = useState([])
-  const chatContainerRef = useRef(null)
+  console.log("hello")
+  const [messages, setMessages] = useState([]);
+  const chatContainerRef = useRef(null);
 
   useEffect(() => {
-    if (chatContainerRef.current) {
-      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
+    if (chatContainerRef.current) 
+    {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
     }
-  }, [messages])
+  }, [messages]);
 
   return (
     <div className="d-flex flex-column vh-100 p-3">
@@ -29,7 +31,7 @@ export default function Main()
           )
         })}
       </div>
-      <div style={{ display: "flex", justifyContent: "center"}}>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <InputForm messages={messages} setMessages={setMessages} />
       </div>
     </div>

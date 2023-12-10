@@ -1,16 +1,16 @@
-import styles from "./Registration.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
 import Email from "../../components/Email/Email";
 import Password from "../../components/Password/Password";
-import { useState } from "react";
+import Username from "../../components/Username/username";
+import AuthContext from "../../context/AuthContext";
+import styles from "./Registration.module.css";
 import { emailRegex, passwordRegex, usernameRegex } from "./regex";
+import { useContext, useState } from "react";
 
 export default function Registration() 
 {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [existingEmail, setExistingEmail] = useState("");
+  const [existingUsername, setExistingUsername] = useState("");
   const [password, setPassword] = useState("");
   const [existingPassword, setExistingPassword] = useState("");
 
@@ -38,10 +38,6 @@ export default function Registration()
     borderRadius: 5
   }
 
-  const usernameStyles = {
-    border : usernameBorder
-  }
-
   function handleUsername(e)
   {
     setUsername(e.target.value);
@@ -63,6 +59,9 @@ export default function Registration()
     setPasswordBorder(passwordRegex.test(e.target.value) ? "3px solid #4bb543" : "3px solid #ff0000");
   }
 
+  const { handleSignUp } = useContext(AuthContext);
+  const { handleSignIn } = useContext(AuthContext);
+
   return (
     <div className={styles.container}>
       <div className={styles.registration}>
@@ -83,24 +82,22 @@ export default function Registration()
           </button>
         </div>
         {newUser ? (
-          <div style={{display: "flex", flexDirection: "column", alignItems: "center", rowGap: 20}}>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", rowGap: 20 }}>
             <h1 className={styles.signUpHeading}>
               <b>Bepul ro'yxatdan o'ting</b>
             </h1>
-            <form className={styles.signUpForm} onSubmit={() => alert("Hello")}>
-              <div className={styles.usernameForm} style={usernameStyles}>
-                <FontAwesomeIcon icon={faUser} className={styles.userIcon} />
-                <input
-                  value={username}
-                  type="text"
-                  placeholder="Username-ni kiriting"
-                  onChange={handleUsername}
-                />
-              </div>
+            <form className={styles.signUpForm} onSubmit={handleSignUp}>
+              <Username
+                handleUsername={handleUsername}
+                value={username}
+                border={usernameBorder}
+                name={"username"}
+              />
               <Email 
                 handleEmail={handleEmail} 
                 value={email} 
                 border={emailBorder} 
+                name={"email"}
               />
               <Password 
                 handlePassword={handlePassword}
@@ -108,6 +105,7 @@ export default function Registration()
                 border={passwordBorder}
                 viewPassword={viewPassword}
                 setViewPassword={setViewPassword}
+                name={"password"}
               />
               {
                 isUsernameValid && isEmailValid && isPasswordValid &&
@@ -120,10 +118,11 @@ export default function Registration()
               <h1 className={styles.signInHeading}>
                 <b>Qaytganingizdan Mavnunman!</b>
               </h1>
-              <form className={styles.signInForm}>
-                <Email 
-                  handleEmail={(e) => setExistingEmail(e.target.value)} 
-                  value={existingEmail} 
+              <form className={styles.signInForm} onSubmit={handleSignIn}>
+                <Username
+                  handleUsername={(e) => setExistingUsername(e.target.value)}
+                  value={existingUsername}
+                  name={"existingUsername"}
                 />
                 <div className={styles.signInPasswordContainer}>
                   <Password 
@@ -131,13 +130,14 @@ export default function Registration()
                     value={existingPassword}
                     viewPassword={viewExistingPassword}
                     setViewPassword={setViewExistingPassword}
+                    name={"existingPassword"}
                   />
                   <div className={styles.link}>
                     <a href="###">Parolni unutdingizmi?</a>
                   </div>
                 </div>
                 {
-                  (existingEmail.length - 10) >= 6 && existingPassword.length >= 8 &&
+                  existingUsername.length >= 4 && existingPassword.length >= 8 &&
                   <button className={styles.logInButton}>Tizimga Kirish</button>
                 }
               </form>
