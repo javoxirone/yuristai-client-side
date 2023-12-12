@@ -56,7 +56,7 @@ export default function Main()
   }, [])
 
   return (
-    <div className="d-flex flex-column vh-100 p-4" style={{ backgroundColor: "#23262d"}}>
+    <div className="d-flex flex-column vh-100 p-4 main-mobile" style={{ backgroundColor: "#0e0e0e"}}>
       <Navigation />
       <Messages messages={messages} isLoading={isLoading} />
       <div style={{ display: "flex", justifyContent: "center"}}>
