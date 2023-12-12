@@ -1,28 +1,30 @@
 .app {
-  display: grid;
-  grid-template-columns: 20% auto;
-  height: 100%;
+    display: grid;
+    grid-template-columns: 20% auto;
+    height: 100%;
 }
 
 ::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 .sidebar {
-  height: 100vh;
+    height: 100vh;
 }
 
 .chat {
-  height: 100vh;
+    height: 100vh;
+}
+
+@media (max-width: 768px) {
+    .main-mobile{
+        width: 100vw;
+    }
 }
 
 @media (0 <= width <= 768px) {
-  .sidebar {
-    display: none;
-  }
-
-  .chat {
-    grid-column: 1 / -1;
-    height: 100%;
-  }
+    .chat {
+        grid-column: 1 / -1;
+        height: 100%;
+    }
 }

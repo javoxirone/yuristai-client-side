@@ -71,7 +71,7 @@ export default function Message({ user, chatgpt }) {
   }
 
   const assistantMsg = {
-    backgroundColor: "#5d51f2",
+    backgroundColor: "#0d6efd",
     color: "#ffffff",
     borderRadius: "10px",
     padding: 15,
