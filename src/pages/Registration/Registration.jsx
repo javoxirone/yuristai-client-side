@@ -1,6 +1,6 @@
 import Email from "../../components/Email/Email";
 import Password from "../../components/Password/Password";
-import Username from "../../components/Username/username";
+import Username from "../../components/Username/Username.jsx";
 import AuthContext from "../../context/AuthContext";
 import styles from "./Registration.module.css";
 import { emailRegex, passwordRegex, usernameRegex } from "./regex";
