@@ -3,6 +3,20 @@
   height: 55px;
   margin-top: 1rem;
   width: 95%;
+  column-gap: 10px;
+}
+
+.inputGroup input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  outline: none;
+  border: none;
+}
+
+.inputGroup button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  width: 60px;
 }
 
 @media (0 <= width <= 768px) {

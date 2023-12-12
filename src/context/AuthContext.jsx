@@ -112,7 +112,7 @@ export function AuthProvider({ children })
                 "Content-Type" : "application/json"
             },
             body: JSON.stringify({
-                "refresh" : authTokens?.refresh
+                "refresh" : authTokens.refresh
             })
         })
         .then((response) => {
