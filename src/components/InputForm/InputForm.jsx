@@ -5,7 +5,8 @@ import styles from "./InputForm.module.css"
 
 const API_KEY = "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"
 
-export default function InputForm({ messages, setMessages }) {
+export default function InputForm({ messages, setMessages }) 
+{
   const [inputValue, setInputValue] = useState("")
 
   function handleInput(e) {
@@ -21,10 +22,11 @@ export default function InputForm({ messages, setMessages }) {
     await apiRequest(prompt)
   }
 
-  async function apiRequest(prompt) {
+  async function apiRequest(prompt) 
+  {
     const systemMessage = {
       role: "system",
-      content: "Explain concepts like I am a regular person",
+      content: "YuristAI - bu O'zbekiston advokatlik kasbi bilan bog'liq jiddiylik va ishonchlilikni aks ettiruvchi professional, rasmiy va obro'li chatbot.",
     }
 
     await fetch("https://api.openai.com/v1/chat/completions", {
@@ -36,22 +38,20 @@ export default function InputForm({ messages, setMessages }) {
       body: JSON.stringify({
         model: "gpt-3.5-turbo",
         messages: [systemMessage, prompt],
-      }),
+      })
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
         setMessages([
           ...messages,
           {
             user: {
               question: prompt.content,
-              id: crypto.randomUUID(),
             },
             chatgpt: {
               answer: data.choices[0].message.content,
-              id: crypto.randomUUID() + "omad",
             },
+            id: crypto.randomUUID()
           },
         ])
       })
@@ -67,7 +67,7 @@ export default function InputForm({ messages, setMessages }) {
         style={{
           color: "white",
           border: "1px solid white",
-          marginRight: "-9px",
+          fontSize: 18
         }}
       />
       <button type="submit" className="btn btn-primary">

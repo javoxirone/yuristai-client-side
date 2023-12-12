@@ -1,7 +1,8 @@
 .inputGroup {
   display: flex;
-  height: 40px;
+  height: 55px;
   margin-top: 1rem;
+  width: 95%;
 }
 
 @media (0 <= width <= 768px) {
