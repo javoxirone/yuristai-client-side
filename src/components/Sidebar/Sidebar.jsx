@@ -17,7 +17,6 @@ export default function Sidebar()
         width: "100%",
         height: "100%",
         backgroundColor: "#1a1a1a",
-        borderRight: "1px solid #6a6a6a",
       }}
     >
       <NavLink

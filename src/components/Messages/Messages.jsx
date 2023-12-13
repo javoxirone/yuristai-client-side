@@ -1,29 +1,34 @@
 import { useRef, useEffect } from "react"
-import Message from "./Message/Message"
+import UserMessage from "./UserMessage/UserMessage"
+import GPTMessage from "./GPTMessage/GPTMessage"
+import Loading from "../LoadingAnimation/Loading"
 import styles from "./Messages.module.css"
 
-function Messages({ messages }) {
-  const chatContainerRef = useRef(null)
+export default function Messages({ messages, isLoading }) 
+{
+    const chatContainerRef = useRef(null)
 
-  useEffect(() => {
-    // Scroll the chat container to the bottom when messages change
-    if (chatContainerRef.current) {
-      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
-    }
-  }, [messages])
-  return (
-    <div className={styles.messageList} ref={chatContainerRef}>
-      {messages.map((item) => {
-        return (
-          <Message
-            user={item.user.question}
-            chatgpt={item.chatgpt.answer}
-            key={item.user.id}
-          />
-        )
-      })}
-    </div>
-  )
+    useEffect(() => {
+      if (chatContainerRef.current) 
+      {
+        chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
+      }
+    }, [messages])
+  
+    return (
+      <div className={styles.messageList} ref={chatContainerRef}>
+        {messages.map((item) => {
+          return (
+            <div key={String(item.id)}>
+            {item.role == "user" ? (
+              <UserMessage message={item.content} />
+            ) : (
+            <GPTMessage message={item.content} />
+            )}
+            </div>
+          )
+        })}
+        {isLoading && <Loading />}
+      </div>
+    )
 }
-
-export default Messages
