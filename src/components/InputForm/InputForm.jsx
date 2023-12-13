@@ -1,122 +1,116 @@
-import { IoSend } from "react-icons/io5"
+import {IoSend} from "react-icons/io5"
 import "../../index.css"
-import { useContext, useState } from "react"
+import {useContext, useState} from "react"
 import styles from "./InputForm.module.css"
 import AuthContext from "../../context/AuthContext"
 
 const API_KEY = "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"
 
-export default function InputForm({ messages, setMessages, setIsLoading }) 
-{
-  const {authTokens, user} = useContext(AuthContext);
+export default function InputForm({messages, setMessages, setIsLoading}) {
+    const {authTokens, user} = useContext(AuthContext);
 
-  async function handleSubmit(event) 
-  {
-    event.preventDefault();
+    async function handleSubmit(event) {
+        event.preventDefault();
 
-    let user_question = event.target.prompt.value;
-    event.target.prompt.value = "";
+        let user_question = event.target.prompt.value;
+        event.target.prompt.value = "";
 
 
-    await fetch("https://yuristai.pythonanywhere.com/api/v1/conversation/create/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + String(authTokens.access),
-      },
-      body: JSON.stringify({
-        "user" : user.user_id,
-        "role" : "user",
-        "content" : user_question
-      })
-    })
-    .then((response) => {
-      if (!response.ok)
-      {
-        throw new Error("something went wrong!")
-      }
-      return response.json();
-    })
-    .then((data) => setMessages([...messages, data]))
-    .catch((error) => alert(error));
+        await fetch("https://yuristai.pythonanywhere.com/api/v1/conversation/create/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + String(authTokens.access),
+            },
+            body: JSON.stringify({
+                "user": user.user_id,
+                "role": "user",
+                "content": user_question
+            })
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("something went wrong!")
+                }
+                return response.json();
+            })
+            .then((data) => setMessages([...messages, data]))
+            .catch((error) => alert(error));
 
-    const prompt = { role: "user", content: user_question }
-    await gptRequest(prompt);
-  }
-
-  async function gptRequest(prompt)
-  {
-    setIsLoading(true);
-
-    const systemMessage = {
-      role: "system",
-      content: `YuristAI - bu O'zbekiston advokatlik kasbi bilan ` +
-               `bog'liq jiddiylik va ishonchlilikni aks ettiruvchi ` +
-               `professional, rasmiy va obro'li chatbot.`
+        const prompt = {role: "user", content: user_question}
+        await gptRequest(prompt);
     }
 
-    await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${API_KEY}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        model: "gpt-3.5-turbo",
-        messages: [systemMessage, prompt]
-      })
-    })
-    .then((response) => {
-      if (!response.ok)
-      {
-        throw new Error("something went wrong");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      fetch("https://yuristai.pythonanywhere.com/api/v1/conversation/create/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "Bearer " + String(authTokens.access),
-        },
-        body: JSON.stringify({
-          "user" : user.user_id,
-          "role" : "assistant",
-          "content" : data.choices[0].message.content
-        })
-      })
-      .then((response) => {
-        if (!response.ok)
-        {
-          throw new Error("something went wrong!")
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setIsLoading(false)
-        setMessages((prevState) => [...prevState, data]);
-      })
-      .catch((error) => console.log(error))
-    })
-    .catch((error) => console.log(error));
-  }
+    async function gptRequest(prompt) {
+        setIsLoading(true);
 
-  return (
-    <form className={styles.inputGroup} onSubmit={handleSubmit}>
-      <input
-        className="form-control bg-dark text-white shadow-none"
-        placeholder="Savol bering"
-        style={{
-          color: "white",
-          border: "1px solid white",
-          fontSize: 18
-        }}
-        name="prompt"
-      />
-      <button type="submit" className="btn btn-primary">
-        <IoSend style={{ color: "white" }} />
-      </button>
-    </form>
-  )
+        const systemMessage = {
+            role: "system",
+            content: `YuristAI - bu O'zbekiston advokatlik kasbi bilan ` +
+                `bog'liq jiddiylik va ishonchlilikni aks ettiruvchi ` +
+                `professional, rasmiy va obro'li chatbot.`
+        }
+
+        await fetch("https://api.openai.com/v1/chat/completions", {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${API_KEY}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                model: "gpt-3.5-turbo",
+                messages: [systemMessage, prompt]
+            })
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("something went wrong");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                fetch("https://yuristai.pythonanywhere.com/api/v1/conversation/create/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + String(authTokens.access),
+                    },
+                    body: JSON.stringify({
+                        "user": user.user_id,
+                        "role": "assistant",
+                        "content": data.choices[0].message.content
+                    })
+                })
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error("something went wrong!")
+                        }
+                        return response.json();
+                    })
+                    .then((data) => {
+                        setIsLoading(false)
+                        setMessages((prevState) => [...prevState, data]);
+                    })
+                    .catch((error) => console.log(error))
+            })
+            .catch((error) => console.log(error));
+    }
+
+    return (
+            <form className={styles.inputGroup} onSubmit={handleSubmit}>
+                <input
+                    className="form-control bg-dark text-white shadow-none"
+                    placeholder="Savol bering"
+                    style={{
+                        color: "white",
+                        border: "1px solid white",
+                        fontSize: 18
+                    }}
+                    name="prompt"
+                />
+                <button type="submit" className="btn btn-primary">
+                    <IoSend style={{color: "white"}}/>
+                </button>
+            </form>
+    )
 }

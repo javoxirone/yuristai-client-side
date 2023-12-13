@@ -1,0 +1,8 @@
+.assistant-message{
+    width: 80%;
+}
+@media (max-width: 425px) {
+    .assistant-message{
+        width: 100%;
+    }
+}
