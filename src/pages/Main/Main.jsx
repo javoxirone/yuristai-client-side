@@ -6,9 +6,9 @@ import AuthContext from "../../context/AuthContext.jsx"
 
 export default function Main() 
 {
-  const { authTokens, handleLogOut } = useContext(AuthContext)
+  const { authTokens, handleLogOut } = useContext(AuthContext);
   const [messages, setMessages] = useState([]);
-
+  const [isLoading, setIsLoading] = useState(false);
 
   function getMessage()
   {
@@ -26,23 +26,41 @@ export default function Main()
       }
       return response.json()
     })
-    .then((data) => alert(data.message))
+    .then((data) => console.log(data.message))
     .catch((error) => {
-      console.log(error)
       handleLogOut()
     })
+  }
+
+  function getConversationList()
+  {
+    fetch("https://yuristai.pythonanywhere.com/api/v1/conversation/list/", {
+      method: "GET",
+      headers: {
+        "Authorization" : `Bearer ${authTokens.access}`
+      }
+    })
+    .then((response) => {
+      if (!response.ok)
+      {
+        throw new Error("something went wrong")
+      }
+      return response.json();
+    })
+    .then((data) => setMessages(data.reverse()));
   }
   
   useEffect(() => {
     getMessage();
+    getConversationList();
   }, [])
 
   return (
-    <div className="d-flex flex-column vh-100 p-4 main-mobile" style={{ backgroundColor: "#0e0e0e"}}>
+    <div className="d-flex flex-column vh-100 p-0 px-md-4 main-mobile" style={{ backgroundColor: "#0e0e0e"}}>
       <Navigation />
-      <Messages messages={messages} />
+      <Messages messages={messages} isLoading={isLoading} />
       <div style={{ display: "flex", justifyContent: "center"}}>
-        <InputForm messages={messages} setMessages={setMessages} />
+        <InputForm messages={messages} setMessages={setMessages} setIsLoading={setIsLoading} />
       </div>
     </div>
   )

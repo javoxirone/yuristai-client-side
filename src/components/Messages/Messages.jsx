@@ -1,29 +1,35 @@
-import { useRef, useEffect } from "react"
-import Message from "./Message/Message"
+import {useRef, useEffect} from "react"
+import UserMessage from "./UserMessage/UserMessage"
+import GPTMessage from "./GPTMessage/GPTMessage"
+import Loading from "../LoadingAnimation/Loading"
 import styles from "./Messages.module.css"
+import moment from "moment/moment.js";
 
-function Messages({ messages }) {
-  const chatContainerRef = useRef(null)
+export default function Messages({messages, isLoading}) {
+    const chatContainerRef = useRef(null)
 
-  useEffect(() => {
-    // Scroll the chat container to the bottom when messages change
-    if (chatContainerRef.current) {
-      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
-    }
-  }, [messages])
-  return (
-    <div className={styles.messageList} ref={chatContainerRef}>
-      {messages.map((item) => {
-        return (
-          <Message
-            user={item.user.question}
-            chatgpt={item.chatgpt.answer}
-            key={item.user.id}
-          />
-        )
-      })}
-    </div>
-  )
+    useEffect(() => {
+        if (chatContainerRef.current) {
+            chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
+        }
+    }, [messages])
+    const formatDate = (createdAt) => {
+        return moment(createdAt).format('MMMM Do YYYY, h:mm');
+    };
+    return (
+        <div className={styles.messageList} ref={chatContainerRef}>
+            {messages.map((item) => {
+                return (
+                    <div key={String(item.id)}>
+                        {item.role == "user" ? (
+                            <UserMessage message={item.content} createdAt={formatDate(item.created_at)}/>
+                        ) : (
+                            <GPTMessage message={item.content} createdAt={formatDate(item.created_at)}/>
+                        )}
+                    </div>
+                )
+            })}
+            {isLoading && <Loading/>}
+        </div>
+    )
 }
-
-export default Messages
