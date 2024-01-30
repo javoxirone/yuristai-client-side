@@ -15,7 +15,7 @@ function PasswordCreationPage()
             <div className={styles.container}>
                 <div className={styles.passwordCreation}>
                     <h1 className={styles.heading}>
-                        Hisobingiz uchun parol yarating
+                        Akkauntingiz uchun parol yarating
                     </h1>
                     <form onSubmit={handleSignUp}>
                         <Password 
