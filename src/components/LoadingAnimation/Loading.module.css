@@ -60,7 +60,7 @@
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #0D6EFDFF;
+    background: rgb(13, 110, 253);
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
   }
 }
@@ -73,7 +73,7 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: #5d51f2;
+    background: rgb(13, 110, 253);
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
   }
 }
@@ -86,7 +86,7 @@
     width: 13px;
     height: 13px;
     border-radius: 50%;
-    background: #5d51f2;
+    background: rgb(13, 110, 253);
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 }

@@ -9,7 +9,13 @@ export function AuthProvider({ children })
 {
     const [authTokens, setAuthTokens] = useState(() => localStorage.getItem("authTokens") ? JSON.parse(localStorage.getItem("authTokens")) : null);
     const [user, setUser] = useState(() => localStorage.getItem("authTokens") ? jwtDecode(localStorage.getItem("authTokens")) : null);
-    const [loading, setLoading] = useState(true)
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [existingUsername, setExistingUsername] = useState("");
+    const [existingPassword, setExistingPassword] = useState("");
+    const [loading, setLoading] = useState(true);
+    const [showFeedback, setShowFeedback] = useState(false);
     const navigate = useNavigate();
 
     function handleSignIn(e)
@@ -22,11 +28,12 @@ export function AuthProvider({ children })
                 "Content-Type" : "application/json"
             },
             body: JSON.stringify({
-                "username" : e.target.existingUsername.value,
-                "password" : e.target.existingPassword.value
+                "username" : existingUsername,
+                "password" : existingPassword
             })
         })
-        .then((response) => {
+        .then((response) => 
+        {
             if (!response.ok)
             {
                 throw new Error("something went wrong...");
@@ -37,7 +44,7 @@ export function AuthProvider({ children })
             setAuthTokens(data); 
             setUser(jwtDecode(data.access));
             localStorage.setItem("authTokens", JSON.stringify(data));
-            navigate("/", {replace: true});
+            navigate("/", { replace: true });
         })
         .catch((error) => alert(error));
     }
@@ -45,10 +52,6 @@ export function AuthProvider({ children })
     function handleSignUp(e)
     {
         e.preventDefault();
-
-        let username = e.target.username.value;
-        let email = e.target.email.value;
-        let password = e.target.password.value;
 
         fetch("https://yuristai.pythonanywhere.com/api/v1/auth/register/", {
             method: "POST",
@@ -61,39 +64,19 @@ export function AuthProvider({ children })
                 "password" : password
             })
         })
-        .then((response) => {
+        .then((response) => 
+        {
             if (!response.ok)
             {
                 throw new Error("something went wrong...");
-            } else 
-            {
-                fetch("https://yuristai.pythonanywhere.com/api/v1/auth/token/", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type" : "application/json"
-                    },
-                    body: JSON.stringify({
-                        "username" : username,
-                        "password" : password
-                    })
-                })
-                .then((response) => {
-                    if (!response.ok)
-                    {
-                        throw new Error("something went wrong...")
-                    }
-                    return response.json()
-                })
-                .then((data) => {
-                    setAuthTokens(data);
-                    setUser(jwtDecode(data.access));
-                    localStorage.setItem("authTokens", JSON.stringify(data));
-                    navigate("/", { replace: true });
-                })
-                .catch((error) => alert(error))
             }
-        })
-        .catch((error) => alert(error));
+            navigate("/registration", { replace: true });
+        }
+        ).catch((error) => 
+        {
+            navigate("/registration", { replace: true });
+            alert(error);
+        });
     }
 
     function handleLogOut()
@@ -101,7 +84,7 @@ export function AuthProvider({ children })
         setAuthTokens(null);
         setUser(null);
         localStorage.removeItem("authTokens");
-        navigate("/registration");
+        navigate("/registration", { replace: true });
     }
 
     function updateToken() 
@@ -131,6 +114,18 @@ export function AuthProvider({ children })
 
     let contextData = {
         user : user,
+        username : username,
+        setUsername: setUsername,
+        email : email,
+        setEmail : setEmail,
+        password : password,
+        setPassword : setPassword,
+        existingUsername : existingUsername,
+        setExistingUsername : setExistingUsername,
+        existingPassword : existingPassword,
+        showFeedback : showFeedback,
+        setShowFeedback : setShowFeedback,
+        setExistingPassword : setExistingPassword,
         handleSignUp : handleSignUp,
         handleSignIn : handleSignIn,
         handleLogOut : handleLogOut,

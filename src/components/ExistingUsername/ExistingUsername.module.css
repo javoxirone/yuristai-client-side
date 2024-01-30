@@ -1,35 +1,9 @@
-.emailInput input {
+.usernameInput input {
     border: none;
     outline: none;
     background-color: inherit;
-    width: 100%;
     color: white;
-}
-
-@keyframes shake {
-    0% {
-        transform: translateX(0);
-    }
-
-    25% {
-        transform: translateX(-5px);
-    }
-    
-    50% {
-        transform: translateX(5px);
-    }
-
-    75% {
-        transform: translateX(-5px);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-}
-  
-.shake {
-    animation: shake 0.5s;
+    width: 100%;
 }
 
 @media (0 <= width <= 768px)
@@ -41,33 +15,25 @@
         gap: 10px;
     }
 
-    .emailInput {
+    .usernameInput {
         display: flex;
         align-items: center;
         width: 100%;
         height: 60px;
         border-radius: 10px;
-        gap: 10px;
+        column-gap: 15px;
         padding: 0 15px;
         border-width: 3px;
         border-style: solid;
     }
 
-    .icon {
+    .usernameInput input {
         font-size: 18px;
+        /* margin-top: 5px; */
     }
 
-    .emailInput input {
+    .userIcon {
         font-size: 18px;
-    }
-
-    .errorMessage {
-        color: #ed4337;
-        font-size: 16px;
-        font-weight: 600;
-        text-align: center;
-        margin-bottom: 0;
-        word-wrap: break-word;
     }
 }
 
@@ -78,38 +44,31 @@
         flex-direction: column;
         width: 515px;
         gap: 10px;
-    } 
+    }
 
-    .emailInput {
+    .usernameInput {
         display: flex;
         align-items: center;
-        border-radius: 10px;
-        padding: 0 15px;
-        gap: 15px;
         width: 100%;
         height: 65px;
+        border-radius: 10px;
+        padding: 0 15px;
+        column-gap: 15px;
         border-width: 3.5px;
         border-style: solid;
     }
 
-    .icon {
+    .usernameInput input {
         font-size: 20px;
     }
 
-    .emailInput input {
+    .userIcon {
         font-size: 20px;
-    }
-
-    .errorMessage {
-        color: #ed4337;
-        font-size: 18px;
-        font-weight: 600;
-        text-align: center;
-        margin-bottom: 0;
     }
 }
 
-@media (width > 1366px) {
+@media (width > 1366px)
+{
     .container {
         display: flex;
         flex-direction: column;
@@ -117,31 +76,23 @@
         gap: 10px;
     }
 
-    .emailInput {
+    .usernameInput {
         display: flex;
         align-items: center;
-        border-radius: 10px;
-        padding: 0 15px;
-        gap: 15px;
         width: 100%;
         height: 70px;
+        border-radius: 10px;
+        padding: 0 15px;
+        column-gap: 15px;
         border-width: 3.5px;
         border-style: solid;
     }
 
-    .icon {
+    .usernameInput input {
         font-size: 22px;
     }
 
-    .emailInput input {
+    .userIcon {
         font-size: 22px;
-    }
-
-    .errorMessage {
-        color: #ed4337;
-        font-size: 20px;
-        font-weight: 600;
-        text-align: center;
-        margin-bottom: 0;
     }
 }
