@@ -1,286 +1,279 @@
-* {
-  color: white;
-  margin: 0;
-  box-sizing: border-box;
+.navigateButton:active {
+    background-color: #0d6efd;
 }
 
-.submitButton:active {
-  background-color: #0d6efd;
+.container {
+    color: white;
 }
 
-.link a {
-  color: white;
+.fadeAppear {
+    opacity: 0;
 }
 
-@media (0 <= width <= 768px) 
-{
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  }
-
-  .registration {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: #1a1a1a;
-    height: 100%;
-    width: 100%;
-  }
-
-  .buttons {
-    display: flex;
-    flex-direction: column;
-    row-gap: 20px;
-    font-size: 22.5px;
-  }
-
-  .buttons button {
-    width: 300px;
-    height: 60px;
-    border: none;
-    font-weight: 600;
-  }
-
-  .signUpHeading {
-    font-size: 30px;
-    word-wrap: break-word;
-    text-align: center;
-  }
-
-  .signUpForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 30px;
-  }
-
-  .submitButton {
-    background-color: #0d6efd;
-    border: none;
-    font-size: 22px;
-    border-radius: 5px;
-    height: 60px;
-    width: 225px;
-    font-weight: 600;
-  }
-
-  .signInHeading {
-    font-size: 31px;
-    text-align: center;
-    word-wrap: break-word;
-  }
-
-  .signInForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 30px;
-  }
-
-  .logInButton {
-    background-color: #0d6efd;
-    border: none;
-    font-size: 22px;
-    border-radius: 5px;
-    height: 60px;
-    width: 200px;
-    font-weight: 600;
-  }
-
-  .signInPasswordContainer {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    row-gap: 10px;
-  }
+.fadeAppearActive {
+    opacity: 1;
+    transition: opacity 1000ms;
 }
 
-@media (768px < width <= 1366px) 
-{
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  }
+@media (0 <= width <= 768px) {
 
-  .registration {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-    background-color: #1a1a1a;
-    row-gap: 40px;
-  }
+    .container {
+        height: 100%;
+    }
 
-  .buttons {
-    display: flex;
-    column-gap: 15px;
-  }
+    .registration {
+        height: 100%;
+        background-color: #1a1a1a;
+    }
 
-  .buttons button {
-    border: none;
-    font-size: 24px;
-    border: none;
-    height: 60px;
-    width: 250px; 
-    font-weight: 600;
-  }
+    .navigation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: end;
+        gap: 20px;
+        font-size: 22px;
+        height: 30%;
+    }
 
-  .signUpHeading {
-    font-size: 32.5px;
-    word-wrap: break-word;
-    text-align: center;
-  }
+    .navigation button {
+        height: 60px;
+        width: 275px;
+        border: none;
+        font-weight: 600;
+        color: inherit;
+        border-radius: 5px;
+    }
 
-  .signUpForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 30px;
-  }
+    .main {
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+        height: 70%;
+        align-items: center;
+        gap: 20px;
+    }
 
-  .submitButton {
-    background-color: #0d6efd;
-    border: none;
-    font-size: 22px;
-    border-radius: 5px;
-    height: 60px;
-    width: 225px;
-    font-weight: 600;
-  }
+    .heading {
+        font-size: 30px;
+        word-wrap: break-word;
+        text-align: center;
+    }
 
-  .signInHeading {
-    font-size: 35px;
-    text-align: center;
-    word-wrap: break-word;
-  }
+    .main form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
 
-  .signInForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 30px;
-  }
+    .linkButton {
+        background-color: #0d6efd;
+        border: none;
+        font-size: 22px;
+        border-radius: 5px;
+        height: 55px;
+        width: 165px;
+        font-weight: 600;
+        color: inherit;
+    }
 
-  .link {
-    font-size: 18px;
-  }
+    .linkButton:disabled {
+        background-color: rgba(13, 110, 253, 0.5);
+        color: rgba(255, 255, 255, 0.5);
+    }
 
-  .signInPasswordContainer {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    row-gap: 10px;
-  }
+    .loginButton {
+        background-color: #0d6efd;
+        border: none;
+        font-size: 22px;
+        border-radius: 5px;
+        height: 55px;
+        width: 185px;
+        font-weight: 600;
+        color: inherit;
+    }
 
-  .logInButton {
-    background-color: #0d6efd;
-    border: none;
-    font-size: 22px;
-    border-radius: 5px;
-    height: 60px;
-    width: 200px;
-    font-weight: 600;
-  }
+    .loginButton:disabled {
+        background-color: rgba(13, 110, 253, 0.5);
+        color: rgba(255, 255, 255, 0.5);
+    }
+
 }
 
-@media (width > 1366px) 
-{
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    background-color: #0E0E0E;
-  }
+@media (768px < width <= 1366px) {
 
-  .registration {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: #1a1a1a;
-    width: 675px;
-    height: 600px;
-    border-radius: 10px;
-    box-shadow: rgb(0, 0, 0) 0px 5px 15px;
-  }
+    .container {
+        height: 100%;
+    }
 
-  .buttons {
-    display: flex;
-    column-gap: 15px;
-  }
+    .registration {
+        height: 100%;
+        background-color: #1a1a1a;
+    }
 
-  .buttons button {
-    border: none;
-    font-size: 25px;
-    border: none;
-    height: 70px;
-    width: 275px; 
-    font-weight: 600;
-  }
+    .navigation {
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        height: 20%;
+        font-size: 24px;
+        gap: 15px;
+    }
 
-  .signUpHeading {
-    font-size: 35px;
-    word-wrap: break-word;
-    text-align: center;
-  }
+    .navigation button {
+        height: 60px;
+        width: 250px; 
+        border: none;
+        font-weight: 600;
+        color: inherit;
+        border-radius: 5px;
+    }
 
-  .signUpForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 30px;
-  }
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 80%;
+        gap: 20px;
+    }
 
-  .submitButton {
-    background-color: #0d6efd;
-    border: none;
-    font-size: 22px;
-    border-radius: 5px;
-    height: 60px;
-    width: 225px;
-    font-weight: 600;
-  }
+    .heading {
+        font-size: 32px;
+        word-wrap: break-word;
+        text-align: center;
+    }
 
-  .signInHeading {
-    font-size: 35px;
-    text-align: center;
-    word-wrap: break-word;
-  }
+    .main form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
 
-  .signInForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 30px;
-  }
+    .linkButton {
+        height: 60px;
+        width: 200px;
+        background-color: #0d6efd;
+        color: inherit;
+        border: none;
+        font-size: 24px;
+        border-radius: 5px;
+        font-weight: 600;
+    }
 
-  .link {
-    font-size: 20px;
-  }
+    .linkButton:disabled {
+        background-color: rgba(13, 110, 253, 0.5);
+        color: rgba(255, 255, 255, 0.5);
+    }
 
-  .signInPasswordContainer {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    row-gap: 10px;
-  }
+    .loginButton {
+        height: 60px;
+        width: 200px;
+        background-color: #0d6efd;
+        color: inherit;
+        border: none;
+        font-size: 24px;
+        border-radius: 5px;
+        font-weight: 600;
+    }
 
-  .logInButton {
-    background-color: #0d6efd;
-    border: none;
-    font-size: 22px;
-    border-radius: 5px;
-    height: 60px;
-    width: 225px;
-    font-weight: 600;
-  }
+    .loginButton:disabled {
+        background-color: rgba(13, 110, 253, 0.5);
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+}
+
+@media (width > 1366px) {
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        background-color: #0E0E0E;
+    }
+
+    .registration {
+        height: 600px;
+        width: 675px;
+        border-radius: 10px;
+        background-color: #1a1a1a;
+        box-shadow: rgb(0, 0, 0) 0px 5px 15px;
+    }
+
+    .navigation {
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        height: 25%;
+        font-size: 26px;
+        gap: 15px;
+    }
+
+    .navigation button {
+        height: 70px;
+        width: 275px; 
+        border: none;
+        font-weight: 600;
+        color: inherit;
+        border-radius: 5px;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 75%;
+        gap: 20px;
+    }
+
+    .heading {
+        font-size: 32px;
+        word-wrap: break-word;
+        text-align: center;
+    }
+
+    .main form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .linkButton {
+        height: 60px;
+        width: 200px;
+        background-color: #0d6efd;
+        color: inherit;
+        border: none;
+        font-size: 24px;
+        border-radius: 5px;
+        font-weight: 600;
+    }
+
+    .linkButton:disabled {
+        background-color: rgba(13, 110, 253, 0.5);
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .loginButton {
+        height: 60px;
+        width: 200px;
+        background-color: #0d6efd;
+        color: inherit;
+        border: none;
+        font-size: 24px;
+        border-radius: 5px;
+        font-weight: 600;
+    }
+
+    .loginButton:disabled {
+        background-color: rgba(13, 110, 253, 0.5);
+        color: rgba(255, 255, 255, 0.5);
+    }
+
 }

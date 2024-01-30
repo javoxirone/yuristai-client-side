@@ -1,19 +1,24 @@
 import styles from "./styles.module.css"
 import Sidebar from "../components/Sidebar/Sidebar"
+import Feedback from "../components/Feedback/Feedback"
 import { Outlet, Navigate } from "react-router-dom"
 import { useContext } from "react"
 import AuthContext from "../context/AuthContext"
-import { useEffect } from "react"
 
 export default function PrivateRoutes() 
 {
-  let { user } = useContext(AuthContext);
+    let { user, showFeedback } = useContext(AuthContext);
 
-
-  return (
+    return (
     <>
     {user ? (
       <div className={styles.wrapper}>
+        { 
+            showFeedback && 
+            <div className={styles.feedbackContainer}>
+                <Feedback />
+            </div>
+        }
         <Sidebar />
         <Outlet />
       </div>

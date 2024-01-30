@@ -1,9 +1,9 @@
-.emailInput input {
+.usernameInput input {
     border: none;
     outline: none;
     background-color: inherit;
-    width: 100%;
     color: white;
+    width: 100%;
 }
 
 @keyframes shake {
@@ -14,7 +14,7 @@
     25% {
         transform: translateX(-5px);
     }
-    
+
     50% {
         transform: translateX(5px);
     }
@@ -27,13 +27,13 @@
         transform: translateX(0);
     }
 }
-  
+
 .shake {
     animation: shake 0.5s;
 }
 
-@media (0 <= width <= 768px)
-{
+@media (0 <= width <= 768px) {
+
     .container {
         display: flex;
         flex-direction: column;
@@ -41,23 +41,23 @@
         gap: 10px;
     }
 
-    .emailInput {
+    .usernameInput {
         display: flex;
         align-items: center;
         width: 100%;
         height: 60px;
         border-radius: 10px;
-        gap: 10px;
         padding: 0 15px;
+        gap: 15px;
         border-width: 3px;
         border-style: solid;
     }
 
-    .icon {
+    .usernameInput input {
         font-size: 18px;
     }
 
-    .emailInput input {
+    .icon {
         font-size: 18px;
     }
 
@@ -66,40 +66,40 @@
         font-size: 16px;
         font-weight: 600;
         text-align: center;
-        margin-bottom: 0;
         word-wrap: break-word;
+        margin-bottom: 0;
     }
 }
 
-@media (768px < width <= 1366px)
-{
+@media (768px < width <= 1366px) {
+
     .container {
         display: flex;
         flex-direction: column;
         width: 515px;
         gap: 10px;
-    } 
+    }
 
-    .emailInput {
+    .usernameInput {
         display: flex;
         align-items: center;
+        width: 100%;
+        height: 65px;
         border-radius: 10px;
         padding: 0 15px;
         gap: 15px;
-        width: 100%;
-        height: 65px;
         border-width: 3.5px;
         border-style: solid;
+    }
+
+    .usernameInput input {
+        font-size: 20px;
     }
 
     .icon {
         font-size: 20px;
     }
-
-    .emailInput input {
-        font-size: 20px;
-    }
-
+    
     .errorMessage {
         color: #ed4337;
         font-size: 18px;
@@ -107,9 +107,11 @@
         text-align: center;
         margin-bottom: 0;
     }
+
 }
 
 @media (width > 1366px) {
+
     .container {
         display: flex;
         flex-direction: column;
@@ -117,23 +119,23 @@
         gap: 10px;
     }
 
-    .emailInput {
+    .usernameInput {
         display: flex;
         align-items: center;
+        height: 70px;
+        width: 100%;
         border-radius: 10px;
         padding: 0 15px;
         gap: 15px;
-        width: 100%;
-        height: 70px;
         border-width: 3.5px;
         border-style: solid;
     }
 
-    .icon {
+    .usernameInput input {
         font-size: 22px;
     }
 
-    .emailInput input {
+    .icon {
         font-size: 22px;
     }
 
@@ -144,4 +146,5 @@
         text-align: center;
         margin-bottom: 0;
     }
+    
 }

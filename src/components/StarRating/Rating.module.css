@@ -1,0 +1,53 @@
+@media (0 < width <= 768px)
+{
+    .container {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .container input {
+        display: none;
+    }
+    
+    .star {
+        cursor: pointer;
+        transition: color 200ms;
+        font-size: 30px;
+    }
+}
+
+@media (768px < width <= 1366px)
+{
+    .container {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .container input {
+        display: none;
+    }
+    
+    .star {
+        cursor: pointer;
+        transition: color 200ms;
+        font-size: 35px;
+    }
+}
+
+@media (width > 1366px)
+{
+    .container {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .container input {
+        display: none;
+    }
+    
+    .star {
+        cursor: pointer;
+        transition: color 200ms;
+        font-size: 40px;
+    }
+}
